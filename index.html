@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Renan Roa — Advocacia Criminal</title>
+  <style>
+    @font-face { font-family: 'Inter'; src: url('fonts/Inter_24pt-Light.ttf'); font-weight: 300; font-display: swap; }
+    @font-face { font-family: 'Inter'; src: url('fonts/Inter_24pt-Regular.ttf'); font-weight: 400; font-display: swap; }
+    @font-face { font-family: 'Inter'; src: url('fonts/Inter_24pt-Medium.ttf'); font-weight: 500; font-display: swap; }
+    @font-face { font-family: 'Inter'; src: url('fonts/Inter_24pt-SemiBold.ttf'); font-weight: 600; font-display: swap; }
+    @font-face { font-family: 'Inter'; src: url('fonts/Inter_24pt-Bold.ttf'); font-weight: 700; font-display: swap; }
+    @font-face { font-family: 'Playfair Display'; src: url('fonts/PlayfairDisplay-Regular.ttf'); font-weight: 400; font-display: swap; }
+    @font-face { font-family: 'Playfair Display'; src: url('fonts/PlayfairDisplay-Bold.ttf'); font-weight: 700; font-display: swap; }
+    @font-face { font-family: 'Playfair Display'; src: url('fonts/PlayfairDisplay-Black.ttf'); font-weight: 900; font-display: swap; }
+  </style>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8D5A3;
+      --gold-dark: #A8873A;
+      --bg: #0C0C0E;
+      --bg-alt: #141418;
+      --white: #FFFFFF;
+      --text-muted: #9A9A9E;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 60px;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    }
+
+.nav-logo {
+      height: 150px;
+      width: auto;
+      filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.3));
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: var(--gold);
+      color: #0C0C0E;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      padding: 12px 22px;
+      border-radius: 4px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-dark);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 60px 0 100px;
+      gap: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle noise/grain overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* Gold glow blob background */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -5%;
+      width: 50%;
+      height: 70%;
+      background: radial-gradient(ellipse, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ─── LEFT CONTENT ─── */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 80px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+      }
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--gold-light);
+      max-width: 460px;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: var(--gold);
+      color: #0C0C0E;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      padding: 16px 32px;
+      border-radius: 4px;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+    }
+
+    .btn-primary svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      border: 1.5px solid rgba(201, 168, 76, 0.5);
+      color: var(--white);
+      font-weight: 500;
+      font-size: 15px;
+      padding: 16px 32px;
+      border-radius: 4px;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .hero-credentials {
+      margin-top: 48px;
+      display: flex;
+      gap: 32px;
+    }
+
+    .credential {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .credential-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .credential-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .credential-sep {
+      width: 1px;
+      background: rgba(201, 168, 76, 0.2);
+      align-self: stretch;
+    }
+
+    /* ─── RIGHT: PHOTO ─── */
+    .hero-image-wrap {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    .photo-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    /* Gold border offset behind photo */
+    .photo-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      transform: translate(14px, 14px);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* Subtle corner accent top-left */
+    .photo-container::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 50px;
+      height: 50px;
+      border-top: 3px solid var(--gold);
+      border-left: 3px solid var(--gold);
+      pointer-events: none;
+    }
+
+    .photo-corner-br {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 50px;
+      height: 50px;
+      border-bottom: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      border-radius: 4px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Name badge over photo */
+    .photo-badge {
+      position: absolute;
+      bottom: 28px;
+      left: -20px;
+      z-index: 4;
+      background: var(--bg-alt);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-left: 3px solid var(--gold);
+      padding: 12px 18px;
+      border-radius: 2px;
+    }
+
+    .photo-badge-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .photo-badge-oab {
+      font-size: 11px;
+      color: var(--gold);
+      margin-top: 2px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ─── SCROLL INDICATOR ─── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .scroll-hint-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+
+      51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+    }
+
+    /* ─── ABOUT ─── */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 80px;
+      padding: 120px 100px;
+      background: var(--bg-alt);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -5%;
+      width: 40%;
+      height: 80%;
+      background: radial-gradient(ellipse, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .about-image-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-photo-container {
+      position: relative;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .about-photo-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      transform: translate(-14px, -14px);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .about-photo-corner-tr {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 50px;
+      height: 50px;
+      border-top: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .about-photo-corner-bl {
+      position: absolute;
+      bottom: -10px;
+      left: -10px;
+      width: 50px;
+      height: 50px;
+      border-bottom: 3px solid var(--gold);
+      border-left: 3px solid var(--gold);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      border-radius: 4px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .about-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .about-title span {
+      color: var(--gold);
+    }
+
+    .about-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 28px;
+    }
+
+    .about-text {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+
+    .about-text strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .about-cta {
+      margin-top: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .about {
+        grid-template-columns: 1fr;
+        padding: 80px 24px;
+        gap: 48px;
+        text-align: center;
+      }
+
+      .about-photo-container {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .about-divider {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .about-cta {
+        display: inline-flex;
+      }
+    }
+
+    /* ─── AREAS ─── */
+    .areas {
+      padding: 120px 100px;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .areas::before {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 50%;
+      background: radial-gradient(ellipse, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .areas-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .areas-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .areas-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .areas-title span {
+      color: var(--gold);
+    }
+
+    .areas-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+
+    .area-card {
+      background: var(--bg-alt);
+      border: 1px solid rgba(201, 168, 76, 0.12);
+      border-top: 2px solid var(--gold);
+      border-radius: 4px;
+      padding: 28px 22px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .area-card:hover {
+      border-color: rgba(201, 168, 76, 0.4);
+      border-top-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .area-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    .area-card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .area-card-list li {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gold-light);
+      line-height: 1.4;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .area-card-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 5px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .areas-cta {
+      text-align: center;
+      margin-top: 64px;
+    }
+
+    @media (max-width: 1100px) {
+      .areas-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .areas {
+        padding: 80px 24px;
+      }
+
+      .areas-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .areas-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── ESTRUTURA ─── */
+    .estrutura {
+      padding: 120px 100px;
+      background: var(--bg-alt);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .estrutura-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .estrutura-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .estrutura-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    .estrutura-title span {
+      color: var(--gold);
+    }
+
+    .estrutura-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 20px auto 0;
+    }
+
+    .estrutura-photo-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto 72px;
+    }
+
+    .estrutura-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--gold);
+      border-radius: 6px;
+      transform: translate(12px, 12px);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .estrutura-photo-corner-tl {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 50px;
+      height: 50px;
+      border-top: 3px solid var(--gold);
+      border-left: 3px solid var(--gold);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .estrutura-photo-corner-br {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 50px;
+      height: 50px;
+      border-bottom: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .estrutura-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border-radius: 6px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .estrutura-features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto 64px;
+    }
+
+    .estrutura-feature {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .estrutura-feature-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .estrutura-feature-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .estrutura-feature-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .estrutura-feature-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .estrutura-cta {
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .estrutura {
+        padding: 80px 24px;
+      }
+
+      .estrutura-features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .estrutura-features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── GOOGLE ─── */
+    .google {
+      padding: 100px;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .google::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(201, 168, 76, 0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .google-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-alt);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 6px;
+      padding: 10px 20px;
+      margin-bottom: 36px;
+    }
+
+    .google-badge svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .google-badge-text {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .google-score {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(72px, 14vw, 140px);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .google-score sup {
+      font-size: 0.35em;
+      vertical-align: super;
+      color: var(--gold-light);
+    }
+
+    .google-stars {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .google-stars svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .google-reviews {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--gold-light);
+      margin-bottom: 40px;
+    }
+
+    .google-reviews strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .google-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 900;
+      color: var(--white);
+      max-width: 600px;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .google-title span {
+      color: var(--gold);
+    }
+
+    .google-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 44px;
+    }
+
+    @media (max-width: 900px) {
+      .google {
+        padding: 80px 24px;
+      }
+
+      .google-stars svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #080809;
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 72px 100px 40px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-brand-logo {
+      height: 96px;
+      width: auto;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .footer-contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-contact-list li a,
+    .footer-contact-list li span {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.5;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact-list li a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-contact-list li a svg,
+    .footer-contact-list li span svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: var(--gold);
+    }
+
+    .footer-social-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-social-list li a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+
+    .footer-social-list li a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-social-list li a svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-oab {
+      font-size: 12px;
+      color: rgba(201, 168, 76, 0.5);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 900px) {
+      footer {
+        padding: 60px 24px 32px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .nav-logo {
+        height: 72px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 120px 24px 60px;
+        gap: 48px;
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding-top: 0;
+        order: 2;
+        text-align: center;
+        align-items: center;
+      }
+
+      .hero-image-wrap {
+        order: 1;
+        padding-top: 0;
+      }
+
+      .photo-container {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .photo-badge {
+        left: 0;
+        bottom: -16px;
+      }
+
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .hero-subtitle {
+        font-size: 15px;
+      }
+
+      .hero-divider {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-credentials {
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .scroll-hint {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <img src="logo.png" alt="Renan Roa Advocacia" class="nav-logo" />
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+
+    <!-- LEFT: Text Content -->
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Advocacia Criminal<br /><span>Plantão 24 Horas</span>
+      </h1>
+
+      <div class="hero-divider"></div>
+
+      <p class="hero-subtitle">
+        Um Processo Criminal pode mudar a sua vida!<br />Nós podemos conquistar a sua liberdade!
+      </p>
+
+      <div class="hero-buttons">
+        <a href="https://wa.me/5544976335155" target="_blank" rel="noopener" class="btn-primary">
+          <!-- WhatsApp icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          FALAR COM O ADVOGADO
+        </a>
+      </div>
+
+      <div class="hero-credentials">
+        <div class="credential">
+          <span class="credential-number">+10</span>
+          <span class="credential-label">Anos de atuação</span>
+        </div>
+        <div class="credential-sep"></div>
+        <div class="credential">
+          <span class="credential-number">500+</span>
+          <span class="credential-label">Casos atendidos</span>
+        </div>
+        <div class="credential-sep"></div>
+        <div class="credential">
+          <span class="credential-number">OAB</span>
+          <span class="credential-label">Certificado</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Photo -->
+    <div class="hero-image-wrap">
+      <div class="photo-container">
+        <img src="RenanHero.jpeg" alt="Dr. Renan Roa — Advogado Criminal" class="hero-photo" />
+        <div class="photo-corner-br"></div>
+        <div class="photo-badge">
+          <div class="photo-badge-name">Dr. Renan Roa</div>
+          <div class="photo-badge-oab">Advogado Criminalista</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- QUEM É RENAN ROA -->
+  <section class="about" id="sobre">
+    <div class="about-image-wrap">
+      <div class="about-photo-container">
+        <img src="whoisrenanroa.jpeg" alt="Dr. Renan Roa" class="about-photo" />
+        <div class="about-photo-corner-tr"></div>
+        <div class="about-photo-corner-bl"></div>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <div class="about-label">Conheça o Advogado</div>
+      <h2 class="about-title">Quem é <span>Renan Roa?</span></h2>
+      <div class="about-divider"></div>
+      <p class="about-text">
+        Renan Roa é um advogado criminalista reconhecido por sua atuação combativa na defesa dos direitos de seus clientes. É especialista em <strong>Flagrantes</strong>, <strong>Audiências</strong>, atuação em plenário no <strong>Tribunal do Júri</strong>, <strong>Tráfico de Drogas</strong> e crimes contra a <strong>Dignidade Sexual</strong>. Sempre defendendo seus direitos e sua liberdade.
+      </p>
+      <p class="about-text">
+        Dr. Renan Roa é comprometido em dedicar-se para proteger seus direitos e garantir uma defesa justa e robusta, sempre em busca da sua <strong>Liberdade!</strong>
+      </p>
+      <a href="https://wa.me/5544976335155" target="_blank" rel="noopener" class="btn-primary about-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Fale com o Advogado
+      </a>
+    </div>
+  </section>
+
+  <!-- ÁREAS DE ATUAÇÃO -->
+  <section class="areas" id="atuacao">
+    <div class="areas-header">
+      <div class="areas-label">Especialidades</div>
+      <h2 class="areas-title">Áreas de <span>Atuação</span></h2>
+      <div class="areas-divider"></div>
+    </div>
+
+    <div class="areas-grid">
+
+      <div class="area-card">
+        <div class="area-card-title">Fase Investigativa</div>
+        <ul class="area-card-list">
+          <li>Boletim de Ocorrência</li>
+          <li>Flagrante Delito – Prisão</li>
+          <li>Intimação Policial – Acompanhamento</li>
+          <li>Depoimento em Delegacia – Orientação</li>
+          <li>Queixa-crime – Calúnia, Injúria e Difamação</li>
+          <li>Análise de Inquérito Policial</li>
+        </ul>
+      </div>
+
+      <div class="area-card">
+        <div class="area-card-title">Fase Pré-Processual</div>
+        <ul class="area-card-list">
+          <li>Prisão em Flagrante</li>
+          <li>Delegacia – Atendimento 24 horas</li>
+          <li>Audiência de Custódia</li>
+          <li>Análise e Orientação Processual</li>
+          <li>ANPP – Acordo de Não Persecução Penal</li>
+        </ul>
+      </div>
+
+      <div class="area-card">
+        <div class="area-card-title">Fase Processual</div>
+        <ul class="area-card-list">
+          <li>Defesa Criminal</li>
+          <li>Audiência de Instrução</li>
+          <li>RA – Resposta à Acusação</li>
+          <li>HC – Habeas Corpus</li>
+          <li>Pedidos de Liberdade</li>
+        </ul>
+      </div>
+
+      <div class="area-card">
+        <div class="area-card-title">Fase Recursal</div>
+        <ul class="area-card-list">
+          <li>TJ – Tribunal de Justiça</li>
+          <li>STJ – Superior Tribunal de Justiça</li>
+          <li>STF – Supremo Tribunal Federal</li>
+        </ul>
+      </div>
+
+      <div class="area-card">
+        <div class="area-card-title">Execução de Pena</div>
+        <ul class="area-card-list">
+          <li>Progressão de Regime – Semiaberto e Aberto</li>
+          <li>Pedido de Remição e Detração de Pena</li>
+          <li>Parcelamento de Multas</li>
+          <li>Visita Familiar</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="areas-cta">
+      <a href="https://wa.me/5544976335155" target="_blank" rel="noopener" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Fale com o Advogado
+      </a>
+    </div>
+  </section>
+
+  <!-- ESTRUTURA -->
+  <section class="estrutura" id="estrutura">
+    <div class="estrutura-header">
+      <div class="estrutura-label">Conheça o Escritório</div>
+      <h2 class="estrutura-title">Nossa Estrutura na <span>Renan Roa Advocacia</span></h2>
+      <div class="estrutura-divider"></div>
+    </div>
+
+    <div class="estrutura-photo-wrap">
+      <div class="estrutura-photo-corner-tl"></div>
+      <div class="estrutura-photo-corner-br"></div>
+      <img src="office.jpg" alt="Escritório Renan Roa Advocacia" class="estrutura-photo" />
+    </div>
+
+    <div class="estrutura-features">
+      <div class="estrutura-feature">
+        <div class="estrutura-feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div class="estrutura-feature-title">Ambiente Acolhedor</div>
+        <div class="estrutura-feature-desc">Espaço projetado para garantir conforto e privacidade em cada atendimento.</div>
+      </div>
+
+      <div class="estrutura-feature">
+        <div class="estrutura-feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="estrutura-feature-title">Tecnologia Avançada</div>
+        <div class="estrutura-feature-desc">Ferramentas modernas para acompanhamento ágil de processos e comunicação eficiente.</div>
+      </div>
+
+      <div class="estrutura-feature">
+        <div class="estrutura-feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div class="estrutura-feature-title">Equipe Especializada</div>
+        <div class="estrutura-feature-desc">Profissionais dedicados exclusivamente ao Direito Criminal, prontos para sua defesa.</div>
+      </div>
+
+      <div class="estrutura-feature">
+        <div class="estrutura-feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="estrutura-feature-title">Plantão 24 Horas</div>
+        <div class="estrutura-feature-desc">Atendimento de emergência a qualquer hora, porque urgências criminais não esperam.</div>
+      </div>
+    </div>
+
+    <div class="estrutura-cta">
+      <a href="https://wa.me/5544976335155" target="_blank" rel="noopener" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Agendar uma Visita
+      </a>
+    </div>
+  </section>
+
+  <!-- GOOGLE -->
+  <section class="google" id="avaliacoes">
+
+    <div class="google-badge">
+      <!-- Google G icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+      <span class="google-badge-text">Google Avaliações</span>
+    </div>
+
+    <div class="google-score">5<sup>.0</sup></div>
+
+    <div class="google-stars">
+      <!-- 5 estrelas preenchidas -->
+      <svg viewBox="0 0 24 24" fill="#C9A84C" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#C9A84C" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#C9A84C" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#C9A84C" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#C9A84C" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+
+    <p class="google-reviews"><strong>123 avaliações</strong> de clientes reais no Google</p>
+
+    <h2 class="google-title">A confiança dos nossos clientes é a nossa <span>maior conquista.</span></h2>
+    <p class="google-sub">Nota máxima no Google. Cada avaliação representa uma pessoa que teve seus direitos defendidos com dedicação e excelência.</p>
+
+    <a href="https://wa.me/5544976335155" target="_blank" rel="noopener" class="btn-primary">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Fale com o Advogado
+    </a>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="logo.png" alt="Renan Roa Advocacia" class="footer-brand-logo" />
+        <p class="footer-brand-desc">Advocacia Criminal especializada, com atendimento 24 horas e defesa comprometida com a sua liberdade.</p>
+      </div>
+
+      <!-- Contato -->
+      <div>
+        <div class="footer-col-title">Contato</div>
+        <ul class="footer-contact-list">
+          <li>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Av. Tuiuti, 2412, sala 12 — Jardim Colina Verde<br />Maringá — PR, 87043-720
+            </span>
+          </li>
+          <li>
+            <a href="mailto:advocaciarenanroa@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              advocaciarenanroa@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/5544998632325" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.08-1.08a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              +55 44 99863-2325
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Redes Sociais -->
+      <div>
+        <div class="footer-col-title">Redes Sociais</div>
+        <ul class="footer-social-list">
+          <li>
+            <a href="https://instagram.com/dr.renanroa" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @dr.renanroa
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/5544976335155" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp — Plantão 24h
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Renan Roa Advocacia. Todos os direitos reservados.</span>
+      <span class="footer-oab">OAB/PR — Advocacia Criminal</span>
+    </div>
+  </footer>
+
+</body>
+
+</html>
