@@ -29,6 +29,15 @@
   <meta name="description"
     content="Defesa criminal estratégica e combativa. Especialista em Habeas Corpus, Tribunal do Júri, Flagrante, Tráfico de Drogas e crimes complexos. Quando sua liberdade está em jogo, conte com Dr. Renan Roa." />
 
+  <!-- Google Ads (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11160928901"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-11160928901');
+  </script>
+
   <style>
     @font-face {
       font-family: 'Inter';
@@ -1691,6 +1700,34 @@
       <span class="footer-oab">OAB/PR — Advocacia Criminal</span>
     </div>
   </footer>
+
+  <!-- Google Ads: disparo de conversão nos cliques WhatsApp -->
+  <script>
+    function gtagReportConversion(url) {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-11160928901/JkoqCPGhxJ0cEIWF-ckp',
+        'event_callback': function() {
+          if (url) { window.open(url, '_blank'); }
+        }
+      });
+      // Fallback: se o callback não disparar em 1s, abre o link mesmo assim
+      setTimeout(function() {
+        if (url) { window.open(url, '_blank'); }
+      }, 1000);
+      return false;
+    }
+
+    // Adiciona o tracking em todos os links de WhatsApp (wa.me)
+    document.addEventListener('DOMContentLoaded', function() {
+      var links = document.querySelectorAll('a[href*="wa.me"]');
+      links.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          gtagReportConversion(this.href);
+        });
+      });
+    });
+  </script>
 
 </body>
 
