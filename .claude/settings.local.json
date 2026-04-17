@@ -4,7 +4,10 @@
       "Bash(magick --version)",
       "Bash(convert --version)",
       "Bash(python -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
-      "Bash(python3 -c \"from PIL import Image; print\\('Pillow OK'\\)\")"
+      "Bash(python3 -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL disponível'\\)\")",
+      "Bash(pip install *)",
+      "Bash(python create_og_image.py)"
     ]
   }
 }
