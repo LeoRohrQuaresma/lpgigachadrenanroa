@@ -7,7 +7,9 @@
       "Bash(python3 -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
       "Bash(python3 -c \"from PIL import Image; print\\('PIL disponível'\\)\")",
       "Bash(pip install *)",
-      "Bash(python create_og_image.py)"
+      "Bash(python create_og_image.py)",
+      "Bash(ls -la .claude/)",
+      "Bash(find . -maxdepth 2 -type f \\\\\\( -name \"vercel.json\" -o -name \"netlify.toml\" -o -name \"sw.js\" -o -name \"service-worker*\" -o -name \"manifest*\" -o -name \"*.json\" -o -name \".htaccess\" -o -name \"CNAME\" \\\\\\) -not -path \"./.git/*\")"
     ]
   }
 }
